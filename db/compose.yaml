@@ -1,0 +1,18 @@
+volumes:
+  pg_data:
+
+
+services:
+  database:
+    container_name: companies_db
+    image: postgres:16.0
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: companies_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./init:/docker-entrypoint-initdb.d"
+      - pg_data:/var/lib/postgresql/data/
