@@ -22,7 +22,7 @@ type Config struct {
 }
 
 func LoadConfig() Config {
-	f, err := os.Open("../../configs/config.yaml")
+	f, err := os.Open("/app/configs/config.yaml")
 	if err != nil {
 		log.Fatal(fmt.Sprintf("error loading config, %v", err))
 	}
